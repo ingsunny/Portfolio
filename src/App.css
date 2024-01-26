@@ -291,10 +291,7 @@
 /* ----------portfolio----- */
 
 #portfolio{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding-top: 150px;
-    padding-bottom: 70px;
+    padding: 100px 0 85px 0;
     background-color: #f9f9f9;
 }
 

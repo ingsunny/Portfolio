@@ -7,7 +7,7 @@ const Header = () => {
       <header id="header">
         <div className="container">
           <div className="logo">
-            <span>Sunny Patel</span>
+            <span>Sunny.dev</span>
           </div>
           <nav className="navbar">
             <ul className="nav-menu">
