@@ -101,17 +101,17 @@
     font-weight: 600;
 }
 
-#header .container .navbar .nav-menu>li>a{
-    text-decoration: none;
+
+#header .container .navbar .nav-menu>li:hover{
+    cursor: pointer;
 }
 
-#header .container .navbar .nav-menu>li>a{
-    text-decoration: none;
-}
 
 #header .container .navbar .nav-menu>li>a:hover{
-    color:#1877f2;
+   color:#1877f2;
 }
+
+
 
 
 /* ------hero section------- */
@@ -208,7 +208,7 @@
 
 #hero .container .tech-stack h3{
     font-size: 17px;
-    font-weight: 300;
+    font-weight:600;
 }
 
 #hero .container .tech-stack ul{
