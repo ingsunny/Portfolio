@@ -168,8 +168,7 @@
 
 
 .hero-right .image-wrapper{
-    background-image: url("./hero.jpeg");
-    width: 350px;
+    width: 350px; 
     height: 350px;
     
     margin: auto;
@@ -264,7 +263,6 @@
 }
 
 #about .container .about-left .about-banner{
-    background-image: url('./background.jpg');
     width: 85%;
     float: left;
     height: 350px;

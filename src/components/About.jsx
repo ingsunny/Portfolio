@@ -7,7 +7,10 @@ const About = () => {
       <section id="about">
         <div className="container">
           <div className="about-left">
-            <div className="about-banner"></div>
+            <div
+              className="about-banner"
+              style={{ backgroundImage: "url(./background.jpg)" }}
+            ></div>
             <div className="about-animation"></div>
           </div>
 

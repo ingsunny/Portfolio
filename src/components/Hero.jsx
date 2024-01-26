@@ -32,7 +32,10 @@ const Hero = () => {
             </div>
 
             <div className="hero-right">
-              <div className="image-wrapper"></div>
+              <div
+                className="image-wrapper"
+                style={{ backgroundImage: "url(./hero.jpeg)" }}
+              ></div>
             </div>
           </div>
 
