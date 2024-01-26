@@ -4,6 +4,7 @@ const About = () => {
   return (
     <>
       {/* <!-- About Section --> */}
+
       <section id="about">
         <div className="container">
           <div className="about-left">

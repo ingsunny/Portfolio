@@ -199,11 +199,11 @@
 
 #hero .container .tech-stack{
     width: 66%;
-    margin:80px auto;
+    margin:auto;
     display: flex;
     align-items: center;
     
-    padding-bottom: 70px;
+    padding: 70px 70px;
 }
 
 #hero .container .tech-stack h3{
@@ -245,7 +245,7 @@
 #about .container{
     width: 66%;
     margin: auto;
-    padding-top: 50px;
+    padding-top: 140px;
     margin-bottom: 27px;
     display: flex;
     justify-content: space-between;

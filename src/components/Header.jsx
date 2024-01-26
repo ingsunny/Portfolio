@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 const Header = () => {
   return (
@@ -11,16 +12,24 @@ const Header = () => {
           <nav className="navbar">
             <ul className="nav-menu">
               <li>
-                <a href="#hero">Home</a>
+                <Link to="home" spy={true} smooth={true} duration={1000}>
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="#about">About</a>
+                <Link to="about" spy={true} smooth={true} duration={1000}>
+                  About
+                </Link>
               </li>
               <li>
-                <a href="#portfolio">Projects</a>
+                <Link to="projects" spy={true} smooth={true} duration={1000}>
+                  Projects
+                </Link>
               </li>
               <li>
-                <a href="#contact">Contact</a>
+                <Link to="contact" spy={true} smooth={true} duration={1000}>
+                  Contact
+                </Link>
               </li>
             </ul>
             <div className="mobile-menu">
