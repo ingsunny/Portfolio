@@ -8,7 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-my portfolio
 dist
 dist-ssr
 *.local

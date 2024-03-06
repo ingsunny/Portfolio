@@ -1,31 +1,51 @@
-import "./App.css";
-import React from "react";
-import About from "./components/About";
+import { motion, AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import Portfolio from "./components/Portfolio";
-import Contact from "./components/Contact";
-import { Element } from "react-scroll";
+import Home from "./components/Home";
+import Projects from "./components/Projects";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
 
 function App() {
   return (
-    <>
-      <Element name="home">
+    <BrowserRouter>
+      <div>
         <Header />
-      </Element>
-      <Hero />
-      <Element name="about">
-        <About />
-      </Element>
-      <Element name="projects">
-        <Portfolio />
-      </Element>
-      <Element name="contact">
-        <Contact />
-      </Element>
-      <Footer />
-    </>
+        <main className="max-w-screen-lg m-auto px-4 md:px-8 lg:px-0">
+          <AnimatePresence mode="wait">
+            <Routes location={location}>
+              <Route
+                path="/"
+                element={
+                  <motion.div
+                    key="projects"
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.9 }}
+                  >
+                    <Home />
+                  </motion.div>
+                }
+              />
+              <Route
+                path="/projects"
+                element={
+                  <motion.div
+                    key="projects"
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.9 }}
+                  >
+                    <Projects />
+                  </motion.div>
+                }
+              />
+            </Routes>
+          </AnimatePresence>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
