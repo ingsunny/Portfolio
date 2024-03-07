@@ -9,3 +9,27 @@ body {
 nav li {
   cursor: pointer;
 }
+* {
+  /* border: 1px solid grey; */
+}
+/* // scrollbar  */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #444444;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #868686;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #d8d8d9;
+}

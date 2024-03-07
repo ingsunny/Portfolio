@@ -1,29 +1,97 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+  const pathSegments = location.pathname
+    .split("/")
+    .filter((segment) => segment !== ""); // Remove empty segments
+
+  const capitalizedPath = pathSegments
+    .map((segment) => {
+      return segment.charAt(0).toUpperCase() + segment.slice(1);
+    })
+    .join(" ");
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [tabName, setTabName] = useState(
+    capitalizedPath ? capitalizedPath : "Home"
+  );
 
   const toggleNav = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleKeyCombination = () => {
+    const event = document.createEvent("Events");
+    event.initEvent("keydown", true, true);
+    event.key = "k";
+    event.ctrlKey = true;
+    document.dispatchEvent(event);
+  };
+
   return (
     <>
       <nav className="border-b border-gray-700/70 px-4 md:px-8 ">
-        <div className="text-[#c1c2c5] text-[0.96rem] font-medium flex justify-between py-4  max-w-screen-lg m-auto">
+        <div className="text-[#c1c2c5] text-[0.96rem] font-medium flex justify-between py-4  max-w-screen-md2 m-auto">
           <ul className="hidden md:flex gap-2">
-            <li className="px-3 py-2 rounded-md bg-[#29292b] text-yellow-300 h-fit">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="px-3 py-2 rounded-md h-fit">
-              <Link to="/projects">Projects</Link>
-            </li>
-            <li className="px-3 py-2 rounded-md h-fit">Bookmarks</li>
-            <li className="px-3 py-2 rounded-md h-fit">Tools</li>
-            <li className="px-3 py-2 rounded-md h-fit">Timeline</li>
-            <li className="px-3 py-2 rounded-md h-fit">About</li>
+            <Link to="/">
+              <li
+                onClick={(e) => setTabName(e.target.innerHTML)}
+                className={`px-3 py-2 rounded-md h-fit ${
+                  tabName == "Home" ? "bg-[#29292b] text-yellow-300" : ""
+                }`}
+              >
+                Home
+              </li>
+            </Link>
+            <Link to="/projects">
+              {" "}
+              <li
+                onClick={(e) => setTabName(e.target.innerHTML)}
+                className={`px-3 py-2 rounded-md h-fit ${
+                  tabName == "Projects" ? "bg-[#29292b] text-yellow-300" : ""
+                }`}
+              >
+                Projects
+              </li>
+            </Link>
+            <Link to="/about">
+              {" "}
+              <li
+                onClick={(e) => setTabName(e.target.innerHTML)}
+                className={`px-3 py-2 rounded-md h-fit ${
+                  tabName == "About" ? "bg-[#29292b] text-yellow-300" : ""
+                }`}
+              >
+                About
+              </li>
+            </Link>
+            <Link to="/timeline">
+              {" "}
+              <li
+                onClick={(e) => setTabName(e.target.innerHTML)}
+                className={`px-3 py-2 rounded-md h-fit ${
+                  tabName == "Timeline" ? "bg-[#29292b] text-yellow-300" : ""
+                }`}
+              >
+                Timeline
+              </li>
+            </Link>
+            <Link to="/tools">
+              {" "}
+              <li
+                onClick={(e) => setTabName(e.target.innerHTML)}
+                className={`px-3 py-2 rounded-md h-fit ${
+                  tabName == "Tools" ? "bg-[#29292b] text-yellow-300" : ""
+                }`}
+              >
+                Tools
+              </li>
+            </Link>
           </ul>
 
           <h1 className="text-[1.6rem] md:hidden" onClick={toggleNav}>
@@ -31,8 +99,11 @@ const Header = () => {
           </h1>
 
           <ul className="flex gap-4">
-            <li className="hidden md:flex items-center px-2 py-1 rounded-md bg-[#29292b] text-yellow-300">
-              <span className="text-2xl ">⌘</span> + K
+            <li
+              onClick={handleKeyCombination}
+              className="hidden md:flex items-center px-2 py-1 rounded-md bg-[#29292b] text-yellow-300"
+            >
+              <span className="text-2xl">⌘</span> + K
             </li>
             <li className="flex items-center px-2 py-1 rounded-md bg-[#29292b] text-yellow-300">
               <span className="text-2xl">
@@ -57,23 +128,66 @@ const Header = () => {
       </nav>
 
       <motion.div
-        className=" bg-[#1a1b1e] w-full md:hidden text-[#c1c2c5] absolute"
+        className="bg-[#1a1b1e] w-full md:hidden text-[#c1c2c5] absolute z-50 h-full"
         initial={{ scale: 0, opacity: 0 }}
         animate={{
           scale: isMobileMenuOpen ? 1 : 0.9,
           opacity: isMobileMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.2 }}
+        onClick={() => setIsMobileMenuOpen(false)}
       >
-        <ul>
-          <li className="px-3 py-2  bg-[#29292b] text-yellow-300 h-fit">
-            Home
-          </li>
-          <li className="px-3 py-2 h-fit">Projects</li>
-          <li className="px-3 py-2 h-fit">Bookmarks</li>
-          <li className="px-3 py-2 h-fit">Tools</li>
-          <li className="px-3 py-2 h-fit">Timeline</li>
-          <li className="px-3 py-2 h-fit">About</li>
+        <ul className="bg-[#1a1b1e] ">
+          <Link to="/">
+            <li
+              className={`px-3 py-2 h-fit ${
+                tabName == "Home" ? "bg-[#29292b] text-yellow-300" : ""
+              }`}
+              onClick={(e) => setTabName(e.target.innerHTML)}
+            >
+              Home
+            </li>
+          </Link>
+          <Link to="/projects">
+            <li
+              className={`px-3 py-2 h-fit ${
+                tabName == "Projects" ? "bg-[#29292b] text-yellow-300" : ""
+              }`}
+              onClick={(e) => setTabName(e.target.innerHTML)}
+            >
+              Projects
+            </li>
+          </Link>
+          <Link to="/about">
+            <li
+              className={`px-3 py-2 h-fit ${
+                tabName == "About" ? "bg-[#29292b] text-yellow-300" : ""
+              }`}
+              onClick={(e) => setTabName(e.target.innerHTML)}
+            >
+              About
+            </li>
+          </Link>
+          <Link to="/timeline">
+            <li
+              className={`px-3 py-2 h-fit ${
+                tabName == "Timeline" ? "bg-[#29292b] text-yellow-300" : ""
+              }`}
+              onClick={(e) => setTabName(e.target.innerHTML)}
+            >
+              Timeline
+            </li>
+          </Link>
+          <Link to="/tools">
+            <li
+              className={`px-3 py-2 h-fit ${
+                tabName == "Tools" ? "bg-[#29292b] text-yellow-300" : ""
+              }`}
+              onClick={(e) => setTabName(e.target.innerHTML)}
+            >
+              Tools
+            </li>
+          </Link>
         </ul>
       </motion.div>
     </>
