@@ -33,3 +33,7 @@ nav li {
 ::-webkit-scrollbar-thumb:hover {
   background: #d8d8d9;
 }
+
+.ul_timeline {
+  list-style-type: "- ";
+}

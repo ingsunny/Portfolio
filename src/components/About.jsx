@@ -12,30 +12,29 @@ const About = () => {
         <div className="flex text-[0.96rem] flex-col gap-4 text-[#c1c2c5] font-semibold w-[96%] ">
           <p>Sunny Patel. 2003.</p>
           <p className="text-sm leading-[23px]">
-            I'm a self-taught developer from Izmir.
+            I'm a self-taught developer from Lucknow.
           </p>
           <p className="text-sm leading-[23px]">
             I've been working to improve myself in web development field since
             2020 with a focus on responsive web applications. I enjoy learning
-            new technologies and tools, writing articles, and working on open
-            source projects. My motivation for developing this website is to
-            share my learnings with the rest of the world.
+            new technologies, tools and working with team members. I really love
+            to share my work to the rest of world and that&apos;s my motivation
+            for creating new tech stuff&apos;s.
           </p>
           <p className="text-sm leading-[23px]">
-            Currently, I'm working as a frontend developer at 90Pixel.
+            Currently, I'm working as a software developer at CodeSoft.
           </p>
           <p className="text-sm leading-[23px]">
-            Along with pixel hunting, I enjoy skating, going to live music
-            events, playing video games, watching TV series, and hanging out
-            with my friends.
-          </p>
-          <p className="text-sm leading-[23px]">
-            Find out more about me by visiting this page.
+            Along with my studies, I enjoy singing, reading poems, watching
+            netflix, playing video games and hanging out with my friends.
           </p>
         </div>
         <h1 className="text-xl sm:text-2xl text-[#c1c2c5] font-bold">
-          Contact Me
+          Contact
         </h1>
+        <p className="text-sm leading-[23px] font-semibold text-[#c1c2c5]">
+          Don&apos;t be shy to contact! 👇
+        </p>
         <ul className="flex gap-4">
           <Link to="https://github.com/sunnypatel-koder/" target="_blank">
             <li>
