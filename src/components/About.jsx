@@ -22,7 +22,7 @@ const About = () => {
             for creating new tech stuff&apos;s.
           </p>
           <p className="text-sm leading-[23px]">
-            Currently, I'm working as a software developer at CodeSoft.
+            Currently, I'm working as a Web Developer Intern at CodeSoft.
           </p>
           <p className="text-sm leading-[23px]">
             Along with my studies, I enjoy singing, reading poems, watching
