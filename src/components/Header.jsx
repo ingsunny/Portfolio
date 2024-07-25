@@ -1,38 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Link, NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
-  const pathSegments = location.pathname
-    .split("/")
-    .filter((segment) => segment !== ""); // Remove empty segments
-
-  const capitalizedPath = pathSegments
-    .map((segment) => {
-      return segment.charAt(0).toUpperCase() + segment.slice(1);
-    })
-    .join(" ");
-
+  const [tabName, setTabName] = useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [tabName, setTabName] = useState(
-    capitalizedPath ? capitalizedPath : "Home"
-  );
 
-  const toggleNav = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  useEffect(() => {
+    const pathSegments = location.pathname
+      .split("/")
+      .filter((segment) => segment !== ""); // Remove empty segments
 
-  const handleKeyCombination = () => {
+    const capitalizedPath = pathSegments
+      .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+      .join(" ");
+
+    setTabName(capitalizedPath || "Home");
+  }, [location.pathname]);
+
+  const toggleNav = useCallback(() => {
+    setIsMobileMenuOpen((prev) => !prev);
+  }, []);
+
+  const handleKeyCombination = useCallback(() => {
     const event = document.createEvent("Events");
     event.initEvent("keydown", true, true);
     event.key = "k";
     event.ctrlKey = true;
     document.dispatchEvent(event);
-  };
-
+  }, []);
   return (
     <>
       <nav className="border-b border-gray-700/70 px-4 md:px-8 ">
@@ -105,34 +103,42 @@ const Header = () => {
             >
               <span className="text-2xl">⌘</span> + K
             </li>
-            <li className="flex items-center px-2 py-1 rounded-md bg-[#29292b] text-yellow-300">
-              <span className="text-2xl">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"
-                  />
-                </svg>
-              </span>
-            </li>
+            <Link
+              to="#"
+              onClick={() =>
+                (window.location.href = "mailto:sunnypatel.koder@gmail.com")
+              }
+            >
+              <li className="flex items-center px-2 h-full rounded-md bg-[#29292b] text-yellow-300">
+                <span className="text-2xl">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <title>sunnypatel.koder@gmail.com</title>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"
+                    />
+                  </svg>
+                </span>
+              </li>
+            </Link>
           </ul>
         </div>
       </nav>
 
       <motion.div
         className="bg-[#1a1b1e] w-full md:hidden text-[#c1c2c5] absolute z-50 h-full"
-        initial={{ scale: 0, opacity: 0 }}
+        initial={{ x: "-100%", opacity: 0 }}
         animate={{
-          scale: isMobileMenuOpen ? 1 : 0.9,
-          opacity: isMobileMenuOpen ? 1 : 0,
+          x: isMobileMenuOpen ? "0%" : "-100%",
+          opacity: isMobileMenuOpen ? 1 : 0.8,
         }}
         transition={{ duration: 0.2 }}
         onClick={() => setIsMobileMenuOpen(false)}

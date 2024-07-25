@@ -19,7 +19,7 @@ const Timeline = () => {
                 </div>
                 <ul className="text-[#b4b5b6] text-sm leading-6 ul_timeline">
                   <li>
-                    Continuing to explore Java and JavaScript to enhance
+                    Continuing to explore Java, JavaScript and Python to enhance
                     programming skills further.
                   </li>
                 </ul>
@@ -40,11 +40,11 @@ const Timeline = () => {
                   </li>
                   <li>
                     Expanded knowledge in programming languages with a focus on
-                    C, Java, and advanced JavaScript concepts.
+                    Java, Python and advanced JavaScript concepts.
                   </li>
                   <li>
                     Explored JavaScript libraries and frameworks like React.js,
-                    Express.js, Node.js, and databases such as MongoDB.
+                    Next.js, Node.js, and databases such as MongoDB.
                   </li>
                 </ul>
               </div>
@@ -132,7 +132,7 @@ const Timeline = () => {
                     Born in 2003
                   </div>
                 </div>
-                <ul class="text-[#b4b5b6] text-sm leading-6 ul_timeline">
+                <ul className="text-[#b4b5b6] text-sm leading-6 ul_timeline">
                   <li>
                     Born in the village of Basti, located in the state of Uttar
                     Pradesh, India.

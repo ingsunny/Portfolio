@@ -1,6 +1,12 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+  Fragment,
+} from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import HomeIcon from "./menuIcon/HomeIcon";
 import ProjectIcon from "./menuIcon/ProjectIcon";
@@ -10,47 +16,54 @@ import AboutIcon from "./menuIcon/AboutIcon";
 
 export default function Modal() {
   const [open, setOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const cancelButtonRef = useRef(null);
+
+  // Memoize menu items to avoid redefining them on every render
+  const menuItems = useMemo(
+    () => ({
+      Home: { name: "Home", link: "/", svg: <HomeIcon /> },
+      About: { name: "About", link: "/about", svg: <AboutIcon /> },
+      Projects: { name: "Projects", link: "/projects", svg: <ProjectIcon /> },
+      Tools: { name: "Tools", link: "/tools", svg: <ToolsIcon /> },
+      Timeline: { name: "Timeline", link: "/timeline", svg: <TimelineIcon /> },
+    }),
+    []
+  );
 
   useEffect(() => {
     const handleKeyPress = (event) => {
       if (event.ctrlKey && event.key === "k") {
         setOpen(true);
-        event.preventDefault(); // Prevent the default behavior of Ctrl + K
+        event.preventDefault();
       }
     };
 
     document.addEventListener("keydown", handleKeyPress);
-
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, []); // Empty dependency array ensures the effect runs only once
+  }, []);
 
-  const menuItems = {
-    Home: {
-      name: "Home",
-      link: "/",
-      svg: <HomeIcon />,
-    },
-    About: { name: "About", link: "/about", svg: <AboutIcon /> },
-    Projects: { name: "Projects", link: "/projects", svg: <ProjectIcon /> },
-    Tools: { name: "Tools", link: "/tools", svg: <ToolsIcon /> },
-    Timeline: { name: "Timeline", link: "/timeline", svg: <TimelineIcon /> },
-  };
+  // Memoize the filtered items to avoid recalculating on every render
+  const filteredItems = useMemo(() => {
+    return Object.values(menuItems).filter(
+      (item) =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.link.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [menuItems, searchTerm]);
 
-  const [searchTerm, setSearchTerm] = useState("");
+  // Debounce the search input to minimize renders
+  const handleChange = useCallback((event) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+  }, []);
 
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const filteredItems = Object.values(menuItems).filter(
-    (item) =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.link.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const handleLinkClick = useCallback(() => {
+    setOpen(false);
+  }, []);
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -89,15 +102,15 @@ export default function Modal() {
                     <div className="flex w-full gap-3 py-3 px-3 ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-search"
+                        className="icon icon-tabler icon-tabler-search"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         stroke="#909296"
-                        stroke-width="2"
+                        strokeWidth="2"
                         fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
                         <path
                           stroke="none"
@@ -117,7 +130,11 @@ export default function Modal() {
                   </div>
                   <ul className="py-[0.27rem] px-[0.24rem]">
                     {filteredItems.map((item, index) => (
-                      <Link to={item.link} onClick={() => setOpen(false)}>
+                      <Link
+                        key={index}
+                        to={item.link}
+                        onClick={handleLinkClick}
+                      >
                         <li
                           key={index}
                           className="flex gap-3 hover:bg-gray-400/20  py-2 px-2 rounded-md"

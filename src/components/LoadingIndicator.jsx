@@ -5,7 +5,7 @@ const LoadingIndicator = () => {
     <div className="flex items-center justify-center flex-col h-[100vh] w-full ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
         style={{ margin: "auto", display: "block", shapeRendering: "auto" }}
         width="100px"
         height="100px"

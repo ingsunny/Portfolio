@@ -15,18 +15,18 @@ const About = () => {
             I'm a self-taught developer from Lucknow.
           </p>
           <p className="text-sm leading-[23px]">
-            I've been working to improve myself in web development field since
-            2020 with a focus on responsive web applications. I enjoy learning
-            new technologies, tools and working with team members. I really love
-            to share my work to the rest of world and that&apos;s my motivation
-            for creating new tech stuff&apos;s.
+            I've been working in software development field since 2020 with a
+            focus on great user experience. I enjoy learning new technologies,
+            tools and working with team members. I really love to share my work
+            to the rest of world and that&apos;s my motivation for creating new
+            tech stuff&apos;s.
           </p>
           <p className="text-sm leading-[23px]">
             Currently, I'm working as a Web Developer Intern at CodeSoft.
           </p>
           <p className="text-sm leading-[23px]">
-            Along with my studies, I enjoy singing, reading poems, watching
-            netflix, playing video games and hanging out with my friends.
+            Along with my studies, I enjoy singing, reading books, playing chess
+            and hanging out with my friends.
           </p>
         </div>
         <h1 className="text-xl sm:text-2xl text-[#c1c2c5] font-bold">

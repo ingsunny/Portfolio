@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
+  const [articles, setArticles] = useState([]);
+  const apiKey = "d7a223a3fc0f444a8e040b0f78434bf8";
+
+  useEffect(() => {
+    // Fetch latest technology articles
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch(
+          `https://newsapi.org/v2/top-headlines?category=technology&language=en&apiKey=${apiKey}`
+        );
+        const data = await response.json();
+        setArticles(data.articles.slice(0, 6)); // Get the top 6 articles
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      }
+    };
+
+    fetchArticles();
+  }, [apiKey]);
+
   return (
     <div className="text-[#c1c2c5] flex flex-col gap-10 ">
       <div className="flex flex-col gap-7">
@@ -284,20 +304,16 @@ const Home = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-5">
+      <div className="flex flex-col gap-5">
         <h1 className="text-[1.5rem] font-bold">Latest Articles</h1>
         <ul className="flex flex-col gap-3 text-[#fcc419] font-bold underline">
-          <li>
-            Web uygulamalarında performans ölçümü (Lighthouse — Unlighthouse)
-          </li>
-          <li>JavaScript Rendering Patterns</li>
-          <li>React Hooks Pattern</li>
-          <li>
-            Stil Kılavuzları, Tasarım Sistemleri ve Bileşen Kütüphaneleri
-            Hakkında Bildiğim Her Şey
-          </li>
-          <li>Front-End Geliştirme Araçları #2</li>
-          <li>Module Pattern (Learning Patterns)</li>
+          {articles.map((article, index) => (
+            <li key={index}>
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
+                {article.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
