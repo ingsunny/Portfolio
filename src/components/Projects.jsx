@@ -6,7 +6,7 @@ const Projects = () => {
 
   useEffect(() => {
     const fetchRepos = async () => {
-      const url = "https://api.github.com/users/sunnypatel-koder/repos";
+      const url = "https://api.github.com/users/sunnypatel-dev/repos";
 
       try {
         const response = await fetch(url);
