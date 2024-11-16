@@ -106,7 +106,7 @@ const Header = () => {
             <Link
               to="#"
               onClick={() =>
-                (window.location.href = "mailto:sunnypatel.koder@gmail.com")
+                (window.location.href = "mailto:sunnypatel.dev@outlook.com")
               }
             >
               <li className="flex items-center px-2 h-full rounded-md bg-[#29292b] text-yellow-300">
@@ -119,7 +119,7 @@ const Header = () => {
                     stroke="currentColor"
                     className="w-6 h-6"
                   >
-                    <title>sunnypatel.koder@gmail.com</title>
+                    <title>sunnypatel.dev@outlook.com</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"

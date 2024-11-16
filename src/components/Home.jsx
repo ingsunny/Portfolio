@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
-  const apiKey = "d7a223a3fc0f444a8e040b0f78434bf8";
+  const apiKey = "aac0e2587ad446dc9ffdd2988a220981";
 
   useEffect(() => {
     // Fetch latest technology articles
@@ -12,6 +12,7 @@ const Home = () => {
           `https://newsapi.org/v2/top-headlines?category=technology&language=en&apiKey=${apiKey}`
         );
         const data = await response.json();
+        console.log(data)
         setArticles(data.articles.slice(0, 6)); // Get the top 6 articles
       } catch (error) {
         console.error("Error fetching articles:", error);

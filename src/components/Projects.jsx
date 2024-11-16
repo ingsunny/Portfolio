@@ -14,8 +14,8 @@ const Projects = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
-        setRepos(data);
+        const filteredData = data.filter((i) => i.homepage)
+        setRepos(filteredData);
       } catch (error) {
         console.error("Error fetching repositories:", error);
       }
@@ -23,6 +23,7 @@ const Projects = () => {
 
     fetchRepos();
   }, []);
+
 
   return (
     <section className="">
