@@ -36,7 +36,7 @@ const About = () => {
           Don&apos;t be shy to contact! 👇
         </p>
         <ul className="flex gap-4">
-          <Link to="https://github.com/sunnypatel-dev/" target="_blank">
+          <Link to="https://github.com/ingsunny/" target="_blank">
             <li>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const About = () => {
             </li>
           </Link>
           <Link
-            to="https://www.linkedin.com/in/sunnypatel-dev/"
+            to="https://www.linkedin.com/in/ingsunny/"
             target="_blank"
           >
             <li>
@@ -90,7 +90,7 @@ const About = () => {
         <h1 className="text-xl text-[#c1c2c5] font-bold">My Github Stats</h1>
         <div className="text-[#c1c2c5]">
           <GitHubCalendar
-            username="sunnypatel-dev"
+            username="ingsunny"
             // hideColorLegend
             labels={{
               totalCount: "{{count}} contributions in this year",
