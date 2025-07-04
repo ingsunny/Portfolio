@@ -1,26 +1,56 @@
 import React, { useEffect, useState } from "react";
 
 const Home = () => {
-  const [articles, setArticles] = useState([]);
-  const apiKey = "aac0e2587ad446dc9ffdd2988a220981";
+  const [articles, setArticles] = useState([
+    {
+      title:
+        "If You See These Messages On Your PC, You’re Being Hacked - Forbes",
+      url: "https://www.forbes.com/sites/zakdoffman/2025/07/03/if-you-see-these-messages-on-your-pc-youre-being-hacked/",
+    },
+    {
+      title:
+        "Google brings Veo 3 to all Gemini app ‘Pro’ subscribers worldwide - 9to5Google",
+      url: "http://9to5google.com/2025/07/02/gemini-veo-3-world/",
+    },
+    {
+      title:
+        "Your Roku has secret menus and screens - here's how to unlock them - ZDNET",
+      url: "https://www.zdnet.com/home-and-office/home-entertainment/your-roku-has-secret-menus-and-screens-heres-how-to-unlock-them/",
+    },
+    {
+      title:
+        "Nintendo Expands Switch 2's GameCube Library This Week - Nintendo Life",
+      url: "https://www.nintendolife.com/news/2025/07/nintendo-expands-switch-2s-gamecube-library-this-week",
+    },
+    {
+      title: "Mecha Break Classes Tier List - Best Strikers To Use - GameSpot",
+      url: "https://www.gamespot.com/gallery/mecha-break-classes-tier-list-best-strikers-to-use/2900-6732/",
+    },
+    {
+      title: "Two years in, Apple is now officially on Threads - 9to5Mac",
+      url: "https://9to5mac.com/2025/07/02/two-years-in-apple-is-now-officially-on-threads/",
+    },
+  ]);
 
-  useEffect(() => {
-    // Fetch latest technology articles
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?category=technology&language=en&apiKey=${apiKey}`
-        );
-        const data = await response.json();
-        console.log(data);
-        setArticles(data.articles.slice(0, 6)); // Get the top 6 articles
-      } catch (error) {
-        console.error("Error fetching articles:", error);
-      }
-    };
+  // const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
-    fetchArticles();
-  }, [apiKey]);
+  // useEffect(() => {
+  //   // Fetch latest technology articles
+  //   const fetchArticles = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `https://newsapi.org/v2/top-headlines?category=technology&language=en&apiKey=${apiKey}`
+  //       );
+  //       const data = await response.json();
+  //       console.log(data);
+  //       setArticles(data.articles.slice(0, 6)); // Get the top 6 articles
+  //     } catch (error) {
+  //       console.error("Error fetching articles:", error);
+  //     }
+  //   };
+
+  //   fetchArticles();
+  // }, [apiKey]);
 
   return (
     <div className="text-[#c1c2c5] flex flex-col gap-10 ">
