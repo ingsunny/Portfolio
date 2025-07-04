@@ -12,7 +12,7 @@ const Home = () => {
           `https://newsapi.org/v2/top-headlines?category=technology&language=en&apiKey=${apiKey}`
         );
         const data = await response.json();
-        console.log(data)
+        console.log(data);
         setArticles(data.articles.slice(0, 6)); // Get the top 6 articles
       } catch (error) {
         console.error("Error fetching articles:", error);
@@ -27,7 +27,7 @@ const Home = () => {
       <div className="flex flex-col gap-7">
         <h1 className="text-[2rem] font-bold">Hello 🤙</h1>
         <div className="flex flex-col gap-1 text-[0.92rem] font-normal">
-          <p>I'm a full stack developer based in Lucknow, India.</p>
+          <p>I'm a full stack developer based in Noida, India.</p>
           <p>
             I love to{" "}
             <strong className="text-[#4594cd]">

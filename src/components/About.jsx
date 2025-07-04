@@ -12,7 +12,7 @@ const About = () => {
         <div className="flex text-[0.96rem] flex-col gap-4 text-[#c1c2c5] font-semibold w-[96%] ">
           <p>Sunny Patel. 2003.</p>
           <p className="text-sm leading-[23px]">
-            I'm a self-taught developer from Lucknow.
+            I'm a self-taught developer from Noida.
           </p>
           <p className="text-sm leading-[23px]">
             I've been working in software development field since 2020 with a
@@ -21,9 +21,9 @@ const About = () => {
             to the rest of world and that&apos;s my motivation for creating new
             tech stuff&apos;s.
           </p>
-          <p className="text-sm leading-[23px]">
+          {/* <p className="text-sm leading-[23px]">
             Currently, I'm working as a Web Developer Intern at CodeSoft.
-          </p>
+          </p> */}
           <p className="text-sm leading-[23px]">
             Along with my studies, I enjoy singing, reading books, playing chess
             and hanging out with my friends.
@@ -50,10 +50,7 @@ const About = () => {
               </svg>
             </li>
           </Link>
-          <Link
-            to="https://www.linkedin.com/in/ingsunny/"
-            target="_blank"
-          >
+          <Link to="https://www.linkedin.com/in/ingsunny/" target="_blank">
             <li>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

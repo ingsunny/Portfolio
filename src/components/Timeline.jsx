@@ -19,15 +19,15 @@ const Timeline = () => {
                 </div>
                 <ul className="text-[#b4b5b6] text-sm leading-6 ul_timeline">
                   <li>
-                    Continuing to explore Java, JavaScript and Python to enhance
-                    programming skills further.
+                    Continuing to explore Java, JavaScript, Python and PHP to
+                    enhance programming skills further.
                   </li>
                 </ul>
               </div>
               <div className="relative pl-8 pb-7 sm:pl-32 group">
                 <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:w-1 before:bg-[#6741D9] before:px-px  sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-[#6741D9]  after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
                   <time className="sm:absolute left-5 sm:top-1 inline-flex items-center justify-center text-xs uppercase h-6 mb-1 sm:mb-0 text-[#c1c2c5] ">
-                    SEP-2023
+                    2022 - 2025
                   </time>
                   <div className="text-lg font-semibold text-[#c1c2c5]">
                     Advancing into B.Tech
@@ -51,7 +51,7 @@ const Timeline = () => {
               <div className="relative pl-8 pb-7 sm:pl-32 group">
                 <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:w-1 before:bg-[#6741D9] before:px-px  sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-[#6741D9]  after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
                   <time className="sm:absolute left-5 sm:top-1 inline-flex items-center justify-center text-xs uppercase h-6 mb-1 sm:mb-0 text-[#c1c2c5] ">
-                    Sep-2020
+                    2019 - 2022
                   </time>
                   <div className="text-lg font-semibold text-[#c1c2c5]">
                     Pioneering Diploma Studies
